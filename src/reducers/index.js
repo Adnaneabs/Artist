@@ -3,29 +3,31 @@ import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
 
 const persistConfig = {
-	key: "root",
-	storage,
+    key: "root",
+    storage,
 };
 
 
 const initialWalletState = {
     user: {
-        userAddress : "",
-        userBalance : 0,
+        userAddress: "",
+        userBalance: 0,
     },
 }
 
 const connectWalletReducer = (config = initialWalletState, action) => {
-    switch(action.type){
+    switch (action.type) {
         case "CONNECT_WALLET":
-            return {...config,user: action.user, 
-                        };
+            return {
+                ...config, user: action.user,
+            };
         case "DISCONNECT_WALLET":
             storage.removeItem('persist:root')
-            return {...initialWalletState,
-                    };
+            return {
+                ...initialWalletState,
+            };
         case "TEZOS_INSTANCE":
-            return {...config}
+            return { ...config }
         case "CONNECT_WALLET_ERROR":
             return config;
         default:
@@ -33,15 +35,16 @@ const connectWalletReducer = (config = initialWalletState, action) => {
     }
 }
 
-const contractStorageReducer = (state=0, action) => {
-    switch(action.type){
-        case "SET_VALUE":
+const tokenDataReducer = (state = [], action) => {
+    switch (action.type) {
+        case "SET_TOKEN_DATA":
             return action.payload;
         default:
             return state;
     }
 }
 
-const reducers = combineReducers({walletConfig: connectWalletReducer, contractStorage: contractStorageReducer});
+
+const reducers = combineReducers({ walletConfig: connectWalletReducer, tokenData: tokenDataReducer });
 const persistedReducer = persistReducer(persistConfig, reducers);
 export default persistedReducer;
