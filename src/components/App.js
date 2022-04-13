@@ -62,6 +62,9 @@ const App = () => {
 
     return (
         <div className="ui_container">
+            <style>
+                @import url('http://fonts.cdnfonts.com/css/vast-shadow');
+            </style>
             <Header Tezos={Tezos} setTezos={setTezos} wallet={wallet} />
             <div className="ui_container">
                 <Switch>

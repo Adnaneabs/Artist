@@ -18,6 +18,7 @@ const Header = ({ Tezos, wallet, setTezos }) => {
 
     return (
         <div className="uiMenu" >
+
             <a href="/#" class="logo">Artistic</a>
             <a>
             <input
