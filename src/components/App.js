@@ -15,7 +15,7 @@ import Home from './layouts/Home';
 import Create from './layouts/Create';
 import Show from './layouts/Show';
 import { _walletConfig } from '../actions';
-
+import './App.css'
 const App = () => {
     const dispatch = useDispatch();
     const [Tezos, setTezos] = useState(
@@ -61,9 +61,9 @@ const App = () => {
     }, [dispatch]);
 
     return (
-        <div className="ui container">
+        <div className="ui_container">
             <Header Tezos={Tezos} setTezos={setTezos} wallet={wallet} />
-            <div className="ui container">
+            <div className="ui_container">
                 <Switch>
                     <Route path="/create">
                         <Create Tezos={Tezos} />
