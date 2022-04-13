@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { connectWallet, disconnectWallet } from '../../actions';
-
+import './Header.css'
 const Header = ({ Tezos, wallet, setTezos }) => {
     const selector = useSelector(state => { return state.walletConfig.user });
     const dispatch = useDispatch();
@@ -17,15 +17,19 @@ const Header = ({ Tezos, wallet, setTezos }) => {
     }
 
     return (
-        <div className="ui menu black" style={{ 'marginTop': '5px' }}>
-            <a href="/#" className="ui header item">NFTs</a>
-            <Link className="item" to="/">Home</Link>
-
+        <div className="uiMenu" >
+            <a href="/#" class="logo">Artistic</a>
+            <a>
+            <input
+                    class = "searchBar"
+                    type="text" />
+            </a>
+            <Link className="item" to="/" class='Home'>Home</Link>
             {selector.userAddress !== "" ?
-                <Link className="item" to="/create">Create NFT</Link>
+                <Link className="item" to="/create" class = 'Create'>Create NFT</Link>
                 : null}
 
-            <div className="right menu">
+            <div className="uiMenu-right">
                 {(selector.userAddress === "") ?
                     <a href="/#" className="item" onClick={onClick}>Connect Wallet</a> :
                     <a href="/#" className="item" onClick={onClick}>Disconnect Wallet</a>}
