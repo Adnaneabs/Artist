@@ -17,6 +17,7 @@ import Show from './layouts/Show';
 import Explore from './layouts/Explore';
 import { _walletConfig } from '../actions';
 import './App.css'
+import Footer from "./sections/Footer";
 
 const App = () => {
     const dispatch = useDispatch();
@@ -84,6 +85,7 @@ const App = () => {
                     </Route>
                 </Switch>
             </div>
+            <Footer></Footer>
         </div>
     );
 }
