@@ -1,17 +1,31 @@
-const Token = ({ item, onClick, onCollect }) => {
+
+const Token = ({ item, onClick, onCollect, cardW }) => {
+
     return (
-        <div className="ui fluid card">
-            <div className="image">
-                <img
-                    onClick={onClick}
-                    style={{ maxHeight: "200px", objectFit: "cover" }}
-                    src={`https://ipfs.io/ipfs/${
-                        item.image.split("ipfs://")[1]
-                        }`}
-                    alt={item.description}
-                />
+        <div className="ui fluid card" style={{width : cardW}}>
+            <div className="image" >
+                {item.image[item.image.length - 1] == "4" ? (
+                    <center>
+                        <video onClick={onClick} controls width="200" position="center ">
+
+                            <source src={`https://ipfs.io/ipfs/${
+                                item.image.split("ipfs://")[1]
+                                }`}
+                                type="video/mp4"></source>
+
+                        </video>
+                    </center>) : <img
+                        onClick={onClick}
+                        style={{ maxHeight: "200px", objectFit: "cover", align: "middle" }}
+                        src={`https://ipfs.io/ipfs/${
+                            item.image.split("ipfs://")[1]
+                            }`}
+                        alt={item.description}
+
+                    />}
+
             </div>
-            <div className="content">
+            <div onClick={onClick} className="content">
                 <div className="right floated">
                     Price:
 					<div style={{ color: "black" }}>{item.amount}</div>
@@ -25,7 +39,7 @@ const Token = ({ item, onClick, onCollect }) => {
                 </div>
             </div>
 
-            <div className="extra content">
+            <div className="extra content" style={{backgroundColor : 'rgba(109, 102, 156, 0.68)'}}>
                 <span className="right floated">
                     <button className="ui basic button" onClick={onCollect}>
                         {item.collectable ? "Buy" : "Sold Out"}
@@ -36,6 +50,7 @@ const Token = ({ item, onClick, onCollect }) => {
 					<div style={{ color: "black" }}>{item.token_id}</div>
                 </span>
             </div>
+            
         </div>
     );
 };
