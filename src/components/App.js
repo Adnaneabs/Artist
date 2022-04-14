@@ -68,7 +68,8 @@ const App = () => {
                 @import url('http://fonts.cdnfonts.com/css/vast-shadow');
             </style>
             <Header Tezos={Tezos} setTezos={setTezos} wallet={wallet} />
-            <div className="ui_container">
+            <div className="ui_container" 
+                style={{marginLeft:'10px'}}>
                 <Switch>
                     <Route path="/create">
                         <Create Tezos={Tezos} />

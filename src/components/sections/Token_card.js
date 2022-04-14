@@ -1,6 +1,6 @@
-const Token = ({ item, onClick, onCollect }) => {
+const Token = ({ item, onClick, onCollect, cardW }) => {
     return (
-        <div className="ui fluid card">
+        <div className="ui fluid card" style={{width : cardW}}>
             <div className="image">
                 <img
                     onClick={onClick}
@@ -11,7 +11,7 @@ const Token = ({ item, onClick, onCollect }) => {
                     alt={item.description}
                 />
             </div>
-            <div className="content">
+            <div className="content" style={{backgroundColor : 'rgba(109, 102, 156, 0.68)'}}>
                 <div className="right floated">
                     Price:
 					<div style={{ color: "black" }}>{item.amount}</div>
@@ -25,7 +25,7 @@ const Token = ({ item, onClick, onCollect }) => {
                 </div>
             </div>
 
-            <div className="extra content">
+            <div className="extra content" style={{backgroundColor : 'rgba(109, 102, 156, 0.68)'}}>
                 <span className="right floated">
                     <button className="ui basic button" onClick={onCollect}>
                         {item.collectable ? "Buy" : "Sold Out"}
@@ -36,6 +36,7 @@ const Token = ({ item, onClick, onCollect }) => {
 					<div style={{ color: "black" }}>{item.token_id}</div>
                 </span>
             </div>
+            
         </div>
     );
 };
