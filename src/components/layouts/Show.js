@@ -23,12 +23,23 @@ const Show = ({ Tezos }) => {
                     <div className="ui">{data.description}</div>
                     <div className="row">
                         <div className="nine_wide_column">
-                            <img
-                                src={`https://ipfs.io/ipfs/${
-                                    data.image.split("ipfs://")[1]
-                                    }`}
-                                alt={data.description}
-                            />
+                            {data.image[data.image.length - 1] == "4" ? (
+
+                                <video controls width="250">
+                                    <source src={`https://ipfs.io/ipfs/${
+                                        data.image.split("ipfs://")[1]
+                                        }`}
+                                        type="video/mp4"></source>
+
+                                </video>) :
+                                <img
+                                    style={{ maxHeight: "200px", objectFit: "cover", align: "middle" }}
+                                    src={`https://ipfs.io/ipfs/${
+                                        data.image.split("ipfs://")[1]
+                                        }`}
+                                    alt={data.description}
+
+                                />}
                         </div>
                         <div className="seven_wide_column_container_center">
                             <div className="ui">
