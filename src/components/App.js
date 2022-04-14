@@ -14,8 +14,10 @@ import { Route, Switch } from 'react-router';
 import Home from './layouts/Home';
 import Create from './layouts/Create';
 import Show from './layouts/Show';
+import Explore from './layouts/Explore';
 import { _walletConfig } from '../actions';
 import './App.css'
+
 const App = () => {
     const dispatch = useDispatch();
     const [Tezos, setTezos] = useState(
@@ -76,6 +78,9 @@ const App = () => {
                     </Route>
                     <Route path="/">
                         <Home Tezos={Tezos} />
+                    </Route>
+                    <Route path="/Explore">
+                        <Explore Tezos={Tezos} />
                     </Route>
                 </Switch>
             </div>

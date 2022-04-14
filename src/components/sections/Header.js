@@ -19,20 +19,23 @@ const Header = ({ Tezos, wallet, setTezos }) => {
     return (
         <div className="uiMenu" >
 
-            <a href="/#" class="logo">Artistic</a>
+            <a href="/#"  className="logo">
+                Artistic
+            </a>
             <a>
             <input
                     class = "searchBar"
                     type="text" />
             </a>
             <Link className="item" to="/" class='Home'>Home</Link>
-            {selector.userAddress !== "" ?
-                <Link className="item" to="/create" class = 'Create'>Create NFT</Link>
-                : null}
+            <Link className="item" to="/create" class = 'Create'>Create NFT</Link>
+            <Link className = "item" to="/explore" class='Explore'>Explorer</Link>
+            <Link className = "item" to="/account" class='Account'>Compte</Link>
+
 
             <div className="uiMenu-right">
                 {(selector.userAddress === "") ?
-                    <a href="/#" className="item" onClick={onClick}>Connect Wallet</a> :
+                    <a href="/#" className="item" onClick={onClick}>Wallet</a> :
                     <a href="/#" className="item" onClick={onClick}>Disconnect Wallet</a>}
             </div>
         </div>

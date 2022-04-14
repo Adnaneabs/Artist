@@ -17,12 +17,12 @@ const Show = ({ Tezos }) => {
     }, [selector, id]);
 
     return (
-        <div className="ui internally celled grid">
+        <div className="ui_internally_celled_grid">
             {data !== null ? (
                 <>
                     <div className="ui">{data.description}</div>
                     <div className="row">
-                        <div className="nine wide column">
+                        <div className="nine_wide_column">
                             <img
                                 src={`https://ipfs.io/ipfs/${
                                     data.image.split("ipfs://")[1]
@@ -30,18 +30,18 @@ const Show = ({ Tezos }) => {
                                 alt={data.description}
                             />
                         </div>
-                        <div className="seven wide column container center">
+                        <div className="seven_wide_column_container_center">
                             <div className="ui">
-                                <h3 className="ui right floated header">
+                                <h3 className="ui_right_floated_header">
                                     {data.name}
                                 </h3>
-                                <h3 className="ui left aligned header">Name</h3>
+                                <h3 className="ui_left_aligned_header">Name</h3>
                             </div>
                             <div className="ui">
-                                <h3 className="ui right floated header">
+                                <h3 className="ui_right_floated_header">
                                     {data.symbol}
                                 </h3>
-                                <h3 className="ui left aligned header">
+                                <h3 className="ui_left_aligned_header">
                                     Symbol
 								</h3>
                             </div>
@@ -54,13 +54,13 @@ const Show = ({ Tezos }) => {
                                 }}
                             >
                                 <h3
-                                    className="ui right floated header green"
+                                    className="ui_right_floated_header_green"
                                     style={{ cursor: "pointer" }}
                                     data-content="Copy to clipboard"
                                 >
                                     {data.holder?.slice(0, 6) + "..."}
                                 </h3>
-                                <h3 className="ui left aligned header">
+                                <h3 className="ui_left_aligned_header">
                                     Holder
 								</h3>
                             </div>
@@ -73,35 +73,35 @@ const Show = ({ Tezos }) => {
                                 }}
                             >
                                 <h3
-                                    className="ui right floated header green"
+                                    className="ui_right_floated_header_green"
                                     style={{ cursor: "pointer" }}
                                     data-content="Copy to clipboard"
                                 >
                                     {data.author?.slice(0, 6) + "..."}
                                 </h3>
-                                <h3 className="ui left aligned header">
+                                <h3 className="ui_left_aligned_header">
                                     Author
 								</h3>
                             </div>
                             <div className="ui">
-                                <h3 className="ui right floated header">
+                                <h3 className="ui_right_floated_header">
                                     {data.amount}
                                 </h3>
-                                <h3 className="ui left aligned header">
+                                <h3 className="ui_left_aligned_header">
                                     Price
 								</h3>
                             </div>
                             <div className="ui">
-                                <h3 className="ui right floated header">
+                                <h3 className="ui_right_floated_header">
                                     {data.token_id}
                                 </h3>
-                                <h3 className="ui left aligned header">
+                                <h3 className="ui_left_aligned_header">
                                     Token ID
 								</h3>
                             </div>
                             <div className="ui">
                                 <button
-                                    className="fluid ui button basic green"
+                                    className="fluid_ui_button_basic_green"
                                     onClick={() =>
                                         data.collectable &&
                                         dispatch(
