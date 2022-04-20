@@ -39,10 +39,11 @@ const Home = ({ Tezos }) => {
                 {tokens}
             </div>
             <h1 style={{fontFamily :'Vast Shadow',
-                        color : '#6c669b'}}>
+                        color : '#6c669b',
+                        marginTop : '30px'}}>
                 Récemment créés
                 </h1>
-            <div className="ui link three column grid cards">
+            <div className="ui link three column grid cards" >
                 {tokensRecent}
             </div>
         </div>

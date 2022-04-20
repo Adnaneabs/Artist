@@ -8,7 +8,7 @@ import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 import { BrowserRouter } from "react-router-dom";
 import persistedReducers from "./reducers";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const store = createStore(persistedReducers, applyMiddleware(thunk));
 

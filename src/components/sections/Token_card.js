@@ -6,7 +6,7 @@ const Token = ({ item, onClick, onCollect, cardW }) => {
             <div className="image" >
                 {item.image[item.image.length - 1] == "4" ? (
                     <center>
-                        <video onClick={onClick} controls width="200" position="center ">
+                        <video onClick={onClick} controls width="200px" height="150px" position="center ">
 
                             <source src={`https://ipfs.io/ipfs/${
                                 item.image.split("ipfs://")[1]
@@ -16,7 +16,7 @@ const Token = ({ item, onClick, onCollect, cardW }) => {
                         </video>
                     </center>) : <img
                         onClick={onClick}
-                        style={{ maxHeight: "200px", objectFit: "cover", align: "middle" }}
+                        style={{ maxHeight: "150px", objectFit: "cover", align: "middle" }}
                         src={`https://ipfs.io/ipfs/${
                             item.image.split("ipfs://")[1]
                             }`}
@@ -25,12 +25,12 @@ const Token = ({ item, onClick, onCollect, cardW }) => {
                     />}
 
             </div>
-            <div onClick={onClick} className="content">
+            <div onClick={onClick} className="content" style={{backgroundColor : 'rgba(109, 102, 156, 0.68)'}}>
                 <div className="right floated">
                     Price:
 					<div style={{ color: "black" }}>{item.amount}</div>
                 </div>
-                <div className="header">{item.name}</div>
+                <div className="name">{item.name}</div>
                 <div className="meta">{item.symbol}</div>
                 <div className="description">
                     {item.description.length > 15
