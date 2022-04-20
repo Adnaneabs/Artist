@@ -5,9 +5,8 @@ import {FcReddit} from "react-icons/fc";
 import { Container, Row, Col, ListGroup, ListGroupItem, Button} from "reactstrap";
 import InputGroup from 'react-bootstrap/InputGroup'
 import {Link} from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './Footer.css';
-import {FormControl} from "@mui/material";
+
 const MY__ACCOUNT = [
     {
         display: "Mon profil",

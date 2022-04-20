@@ -15,13 +15,13 @@
 }
 
 .footer {
-  padding-bottom: 30px;
   background: rgba(109, 102, 156, 0.68);
   border-radius: 10px;
   margin: 6rem 0;
   display: flex;
   flex-direction: column;
   gap: 5rem;
+  padding-top: 20px;
 }
 
 .list__item {
