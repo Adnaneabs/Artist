@@ -2,9 +2,9 @@
 const Token = ({ item, onClick, onCollect, cardW }) => {
 
     return (
-        <div className="ui fluid card" style={{width : cardW}}>
+        <div className="ui fluid card" style={{ width: cardW }}>
             <div className="image" >
-                {item.image[item.image.length - 1] == "4" ? (
+                {item.image[item.image.length - 1] === "4" ? (
                     <center>
                         <video onClick={onClick} controls width="200px" height="150px" position="center ">
 
@@ -25,7 +25,7 @@ const Token = ({ item, onClick, onCollect, cardW }) => {
                     />}
 
             </div>
-            <div onClick={onClick} className="content" style={{backgroundColor : 'rgba(109, 102, 156, 0.68)'}}>
+            <div onClick={onClick} className="content" style={{ backgroundColor: 'rgba(109, 102, 156, 0.68)' }}>
                 <div className="right floated">
                     Price:
 					<div style={{ color: "black" }}>{item.amount}</div>
@@ -39,7 +39,7 @@ const Token = ({ item, onClick, onCollect, cardW }) => {
                 </div>
             </div>
 
-            <div className="extra content" style={{backgroundColor : 'rgba(109, 102, 156, 0.68)'}}>
+            <div className="extra content" style={{ backgroundColor: 'rgba(109, 102, 156, 0.68)' }}>
                 <span className="right floated">
                     <button className="ui basic button" onClick={onCollect}>
                         {item.collectable ? "Buy" : "Sold Out"}
@@ -50,7 +50,7 @@ const Token = ({ item, onClick, onCollect, cardW }) => {
 					<div style={{ color: "black" }}>{item.token_id}</div>
                 </span>
             </div>
-            
+
         </div>
     );
 };
