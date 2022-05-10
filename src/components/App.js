@@ -70,9 +70,12 @@ const App = () => {
             </style>
             <Header Tezos={Tezos} setTezos={setTezos} wallet={wallet} />
 
-            <div className="ui_container" 
-                style={{marginLeft:'10px' , marginTop : '90px'}}>
+            <div className="ui_container"
+                style={{ marginLeft: '10px', marginTop: '90px' }}>
                 <Switch>
+                    <Route path="/explore">
+                        <Explore Tezos={Tezos} />
+                    </Route>
                     <Route path="/create">
                         <Create Tezos={Tezos} />
                     </Route>
@@ -82,12 +85,10 @@ const App = () => {
                     <Route path="/">
                         <Home Tezos={Tezos} />
                     </Route>
-                    <Route path="/Explore">
-                        <Explore Tezos={Tezos} />
-                    </Route>
+
                 </Switch>
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 }

@@ -4,7 +4,7 @@ const Token = ({ item, onClick, onCollect, cardW }) => {
     return (
         <div className="ui fluid card" style={{width : cardW}}>
             <div className="image" >
-                {item.image[item.image.length - 1] == "4" ? (
+                {item.image[item.image.length - 1] === "4" ? (
                     <center>
                         <video onClick={onClick} controls width="200px" height="150px" position="center ">
 

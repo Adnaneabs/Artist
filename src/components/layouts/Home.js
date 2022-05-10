@@ -7,7 +7,7 @@ import Token from "../sections/Token_card";
 
 const Home = ({ Tezos }) => {
     const selector = useSelector(state => state.tokenData);
-    const dispatch = useDispatch();
+    const dispatch = useDispatch(); 
     const history = useHistory();
 
     const tokens = selector.map((obj, idx) =>
@@ -25,7 +25,7 @@ const Home = ({ Tezos }) => {
             item={obj}
             onCollect={() => dispatch(collectNFT({ Tezos, amount: obj.amount, id: obj.token_id }))}
             onClick={() => obj.collectable && history.push(`/show/${obj.token_id}`)}
-            cardW={190}
+            cardW={200}
         />
     );
 
@@ -39,11 +39,10 @@ const Home = ({ Tezos }) => {
                 {tokens}
             </div>
             <h1 style={{fontFamily :'Vast Shadow',
-                        color : '#6c669b',
-                        marginTop : '30px'}}>
+                        color : '#6c669b'}}>
                 Récemment créés
                 </h1>
-            <div className="ui link three column grid cards" >
+            <div className="ui link three column grid cards">
                 {tokensRecent}
             </div>
         </div>

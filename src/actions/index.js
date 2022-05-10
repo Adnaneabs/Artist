@@ -129,7 +129,7 @@ export const collectNFT = ({ Tezos, amount, id }) => {
     return async (dispatch) => {
         try {
             const contract = await Tezos.wallet.at(config.contractAddress);
-
+            
             const op = await contract.methods
                 .collect(id)
                 .send({ mutez: true, amount: amount });

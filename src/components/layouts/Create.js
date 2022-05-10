@@ -3,6 +3,7 @@ import { NFTStorage, File } from "nft.storage";
 import React, { useState } from "react";
 import { mintNFT } from "../../actions";
 import { useDispatch } from "react-redux";
+import { GiPencilBrush } from "react-icons/gi";
 
 const apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDliNmJiRjA5RTRiMGIyNDQxNTA3NTlkMWQ3MWE1RTc2NjJkMDE3MEYiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY0OTY2NTAzMzc3NiwibmFtZSI6IlBJIn0.K7g0S9tHraUzmhsW9cRrpFs7E5OLsKbdjGLAGTXpf4c";
 const client = new NFTStorage({ token: apiKey });
@@ -65,118 +66,118 @@ const Create = ({ Tezos }) => {
 
     return (
         <div>
-            <form className="ui form error">
-                <div
-                    className={`field required ${
-                        loadingSubmit ? "disabled" : ""
-                        }`}
-                >
-                    <label>Token Name</label>
-                    <input
-                        type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        placeholder="Tez Bytes"
-                    />
-                </div>
-                {name.length > 30 ? (
-                    <div className="ui error message">
-                        <div className="header">Too long!</div>
-                        <p>The name must be less than 30 letters.</p>
-                    </div>
-                ) : null}
-                <div
-                    className={`field required ${
-                        loadingSubmit ? "disabled" : ""
-                        }`}
-                >
-                    <label>Description</label>
-                    <input
-                        type="text"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                        placeholder="A digital art piece!"
-                    />
-                </div>
-                {description.length > 300 ? (
-                    <div className="ui error message">
-                        <div className="header">Too long!</div>
-                        <p>The Description must be less than 300 letters.</p>
-                    </div>
-                ) : null}
-                <div
-                    className={`field required ${
-                        loadingSubmit ? "disabled" : ""
-                        }`}
-                >
-                    <label>Symbol</label>
-                    <input
-                        type="text"
-                        value={symbol}
-                        onChange={(e) => setSymbol(e.target.value)}
-                        placeholder="TBY"
-                    />
-                </div>
-                {Symbol.length > 10 ? (
-                    <div className="ui error message">
-                        <div className="header">Too long!</div>
-                        <p>The Symbol must be less than 10 letters.</p>
-                    </div>
-                ) : null}
-                <div
-                    className={`field required ${
-                        loadingSubmit ? "disabled" : ""
-                        }`}
-                >
-                    <label>
-                        Selling Amount (Mutez) (There is a 3% service fee)
-                </label>
-                    <input
-                        type="text"
-                        value={amount}
-                        onChange={(e) => setAmount(e.target.value)}
-                        placeholder="Amount"
-                    />
-                </div>
-                {!/^-?\d+$/.test(amount) && amount !== "" ? (
-                    <div className="ui error message">
-                        <div className="header">Only number allowed</div>
-                        <p>The amount must be a valid Mutez value.</p>
-                    </div>
-                ) : null}
-                <div
-                    className={`field required ${
-                        loadingSubmit ? "disabled" : ""
-                        }`}
-                >
-                    <label>Image</label>
-                    <button
-                        type="button"
-                        className="ui basic button"
-                        onClick={(event) => {
-                            openFileSelector();
-                            event.preventDefault();
-                        }}
+            <div style={{ width: '50%' }}>
+                <form className="ui form error">
+                    <div
+                        className={`field required ${loadingSubmit ? "disabled" : ""
+                            }`}
                     >
-                        Select files{" "}
-                    </button>
-                    {filesContent.length > 0 ? filesContent[0].name : ""}
-                </div>
-                {error ? (
-                    <div className="ui error message">
-                        <div className="header">Error</div>
-                        <p>{error}</p>
+                        <label>Token Name</label>
+                        <input
+                            type="text"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            placeholder="Tez Bytes"
+                        />
                     </div>
-                ) : null}
+                    {name.length > 30 ? (
+                        <div className="ui error message">
+                            <div className="header">Too long!</div>
+                            <p>The name must be less than 30 letters.</p>
+                        </div>
+                    ) : null}
+                    <div
+                        className={`field required ${loadingSubmit ? "disabled" : ""
+                            }`}
+                    >
+                        <label>Description</label>
+                        <input
+                            type="text"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                            placeholder="A digital art piece!"
+                        />
+                    </div>
+                    {description.length > 300 ? (
+                        <div className="ui error message">
+                            <div className="header">Too long!</div>
+                            <p>The Description must be less than 300 letters.</p>
+                        </div>
+                    ) : null}
+                    <div
+                        className={`field required ${loadingSubmit ? "disabled" : ""
+                            }`}
+                    >
+                        <label>Symbol</label>
+                        <input
+                            type="text"
+                            value={symbol}
+                            onChange={(e) => setSymbol(e.target.value)}
+                            placeholder="TBY"
+                        />
+                    </div>
+                    {Symbol.length > 10 ? (
+                        <div className="ui error message">
+                            <div className="header">Too long!</div>
+                            <p>The Symbol must be less than 10 letters.</p>
+                        </div>
+                    ) : null}
+                    <div
+                        className={`field required ${loadingSubmit ? "disabled" : ""
+                            }`}
+                    >
+                        <label>
+                            Selling Amount (Mutez) (There is a 3% service fee)
+                        </label>
+                        <input
+                            type="text"
+                            value={amount}
+                            onChange={(e) => setAmount(e.target.value)}
+                            placeholder="Amount"
+                        />
+                    </div>
+                    {!/^-?\d+$/.test(amount) && amount !== "" ? (
+                        <div className="ui error message">
+                            <div className="header">Only number allowed</div>
+                            <p>The amount must be a valid Mutez value.</p>
+                        </div>
+                    ) : null}
+                    <div
+                        className={`field required ${loadingSubmit ? "disabled" : ""
+                            }`}
+                    >
+                        <label>Image</label>
+                        <button
+                            type="button"
+                            className="ui basic button"
+                            onClick={(event) => {
+                                openFileSelector();
+                                event.preventDefault();
+                            }}
+                        >
+                            Select files{" "}
+                        </button>
+                        {filesContent.length > 0 ? filesContent[0].name : ""}
+                    </div>
+                    {error ? (
+                        <div className="ui error message">
+                            <div className="header">Error</div>
+                            <p>{error}</p>
+                        </div>
+                    ) : null}
 
-                <button
-                    className={`ui button ${loadingSubmit ? "loading" : ""}`}
-                    onClick={(e) => onSubmit(e)}
-                    type="submit"
-                >
-                    Mint
-            </button>
-            </form>
+                    <button
+                        className={`ui button ${loadingSubmit ? "loading" : ""}`}
+                        onClick={(e) => onSubmit(e)}
+                        type="submit"
+                    >
+                        Mint
+                    </button>
+                </form>
+            </div>
+            <div style={{ width: '40%' }}>
+                <h2 className=" d-flex gap-2 align-items-center"><span><GiPencilBrush /></span> Artistic</h2>
+            </div>
         </div>
     );
 };

@@ -23,7 +23,7 @@ const Show = ({ Tezos }) => {
                     <div className="ui">{data.description}</div>
                     <div className="row">
                         <div className="nine_wide_column">
-                            {data.image[data.image.length - 1] == "4" ? (
+                            {data.image[data.image.length - 1] === "4" ? (
 
                                 <video controls width="250">
                                     <source src={`https://ipfs.io/ipfs/${

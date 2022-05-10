@@ -4,33 +4,34 @@ import { NavLink, Link } from 'react-router-dom';
 import { connectWallet, disconnectWallet } from '../../actions';
 import './Header.css'
 import SearchBar from "../layouts/SearchBar";
-import {Container} from "reactstrap";
-import { AiOutlineWallet, AiOutlineMenu} from 'react-icons/ai';
-import {GiPencilBrush} from 'react-icons/gi';
+import { Container } from "reactstrap";
+import { AiOutlineWallet, AiOutlineMenu } from 'react-icons/ai';
+import { GiPencilBrush } from 'react-icons/gi';
 const NavigationLinks = [
     {
-        display:'Accueil',
+        display: 'Accueil',
         url: '/'
     },
     {
-        display:'Explorer',
+        display: 'Explorer',
         url: '/explore'
     },
     {
-        display:'Créer',
+        display: 'Créer',
         url: '/create'
     },
     {
-        display:'Compte',
+        display: 'Compte',
         url: '/account'
     }
 ]
 const Header = ({ Tezos, wallet, setTezos }) => {
     const selector = useSelector(state => { return state.walletConfig.user });
     const dispatch = useDispatch();
-
+    
     const onClick = (event) => {
-        event.preventDefault();
+        console.log("he")
+            event.preventDefault();
         if (selector.userAddress === "") {
             dispatch(connectWallet({ Tezos, wallet }));
         } else {
@@ -43,14 +44,14 @@ const Header = ({ Tezos, wallet, setTezos }) => {
             <Container>
                 <div className='nav'>
                     <div className='logo'>
-                        <h2 className=" d-flex gap-2 align-items-center"><span><GiPencilBrush/></span> Artistic</h2>
+                        <h2 className=" d-flex gap-2 align-items-center"><span><GiPencilBrush /></span> Artistic</h2>
                     </div>
 
                     <div className="menu">
 
                         <ul className="menu_list">
                             {
-                                NavigationLinks.map((link,index) => (
+                                NavigationLinks.map((link, index) => (
                                     <li className="menu_items" key={index}>
                                         <NavLink to={link.url}> {link.display}</NavLink>
                                     </li>
@@ -64,26 +65,26 @@ const Header = ({ Tezos, wallet, setTezos }) => {
                             <div>
                                 <button className="btn d-flex gap-2 align-items-center" onClick={onClick} href="/#">
                                     <span className="wallet">
-                                        <AiOutlineWallet style={{ fontSize: '25px' }}/>
+                                        <AiOutlineWallet style={{ fontSize: '25px' }} />
                                     </span>
-                                    <Link>Connect Wallet</Link>
+                                    <Link className="d-flex gap-2 align-items-center" >Connect Wallet</Link>
                                 </button>
                                 <span className="mobile_menu">
-                                <AiOutlineMenu/>
+                                    <AiOutlineMenu />
                                 </span>
                             </div>
-                                 :
+                            :
                             <div>
                                 <button className="btn d-flex gap-2 align-items-center" onClick={onClick} href="/#">
-                                     <span className="wallet">
-                                        <AiOutlineWallet style={{ fontSize: '25px' }}/>
+                                    <span className="wallet">
+                                        <AiOutlineWallet style={{ fontSize: '25px' }} />
                                     </span>
-                                    <Link className ="d-flex gap-2 align-items-center">
+                                    <Link className="d-flex gap-2 align-items-center">
                                         Disconnect
                                     </Link>
                                 </button>
                                 <span className="mobile_menu">
-                                <AiOutlineMenu/>
+                                    <AiOutlineMenu />
                                 </span>
                             </div>
                         }
