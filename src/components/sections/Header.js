@@ -44,7 +44,7 @@ const Header = ({ Tezos, wallet, setTezos }) => {
             <Container>
                 <div className='nav'>
                     <div className='logo'>
-                        <h2 className=" d-flex gap-2 align-items-center"><span><GiPencilBrush /></span> Artistic</h2>
+                        <h2 className=" d-flex gap-2 align-items-center">1Pix</h2>
                     </div>
 
                     <div className="menu">

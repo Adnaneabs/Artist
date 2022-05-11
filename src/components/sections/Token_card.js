@@ -49,6 +49,7 @@ const Token = ({ item, onClick, onCollect, cardW }) => {
                     Token ID:
 					<div style={{ color: "black" }}>{item.token_id}</div>
                 </span>
+
             </div>
 
         </div>

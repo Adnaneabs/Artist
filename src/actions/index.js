@@ -4,6 +4,7 @@ import {
 } from "@airgap/beacon-sdk";
 import config from '../config';
 import axios from "axios";
+export const BURN_ADDRESS = 'tz1burnburnburnburnburnburnburjAYjjX';
 
 
 export const connectWallet = ({ wallet, Tezos }) => {
@@ -140,6 +141,30 @@ export const collectNFT = ({ Tezos, amount, id }) => {
         }
     };
 };
+
+export const burnNFT = ({ Tezos, id, amount}) => {
+    return async (dispatch) => {
+        try {
+            const contract = await Tezos.wallet.at(config.contractAddress);
+            const op = await contract.methods
+                .transfer([
+                    {
+                        from_: config.contractAddress,
+                        txs : [{
+                            to_: BURN_ADDRESS,
+                            token_id: id,
+                            amount: amount
+                        },
+                        ],
+                    },
+                ]).send()
+            await op.confirmation();
+            dispatch(fetchData());
+        } catch(e) {
+            console.log(e);
+        }
+    }
+}
 
 export const hex2buf = (hex) => {
     return new Uint8Array(

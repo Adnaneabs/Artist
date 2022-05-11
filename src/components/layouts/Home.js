@@ -6,6 +6,7 @@ import { collectNFT } from "../../actions";
 import Token from "../sections/Token_card";
 
 const Home = ({ Tezos }) => {
+    //Contient tous les NFTs
     const selector = useSelector(state => state.tokenData);
     const dispatch = useDispatch(); 
     const history = useHistory();
