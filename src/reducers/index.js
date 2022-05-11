@@ -13,7 +13,7 @@ const initialWalletState = {
         userAddress: "",
         userBalance: 0,
     },
-}
+};
 
 const connectWalletReducer = (config = initialWalletState, action) => {
     switch (action.type) {

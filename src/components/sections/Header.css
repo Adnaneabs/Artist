@@ -6,13 +6,13 @@
     top: 0;
     left: 0;
     z-index: 111111;
-    background: rgba(109, 102, 156, 0.68);
+    background-color: #333333;
     border-radius: 10px;
     font-family: 'Vast Shadow', sans-serif;
 
 }
 .logo h2 {
-    color: white;
+    color: #E1F4F3;
     font-size: 50px;
     font-family: 'Vast Shadow', sans-serif;
     margin: auto;
@@ -22,6 +22,7 @@
     align-items: center;
     justify-content: space-between;
     font-family: 'Vast Shadow', sans-serif;
+
 }
 
 .menu_list {
@@ -35,12 +36,12 @@
 
 .menu_items a {
     text-decoration: none;
-    color: #fff;
+    color: #E1F4F3;
     font-family: 'Vast Shadow', sans-serif;
 }
 
 .menu_items a:hover {
-    color: #fff;
+    color: #E1F4F3;
     font-family: 'Vast Shadow', sans-serif;
 }
 
@@ -51,7 +52,7 @@
 }
 
 .menu_wallet .btn a {
-    color: #fff;
+    color: #E1F4F3;
     text-decoration: none;
     font-size: 0.8rem;
     display: inline-block;
@@ -59,15 +60,15 @@
 }
 
 .wallet{
-    color: white ;
+    color: #E1F4F3 ;
 }
 
 .menu_wallet .btn a:hover {
-    color: #fff;
+    color: #E1F4F3;
 }
 
 .mobile_menu {
-    color: #fff;
+    color: #E1F4F3;
     font-size: 1.3rem;
     display: none;
 }

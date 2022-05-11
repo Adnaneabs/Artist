@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { mintNFT } from "../../actions";
 import { useDispatch } from "react-redux";
 import { GiPencilBrush } from "react-icons/gi";
+import {Container} from "@mui/material";
+import {Col, Row} from "reactstrap";
 
 const apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDliNmJiRjA5RTRiMGIyNDQxNTA3NTlkMWQ3MWE1RTc2NjJkMDE3MEYiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY0OTY2NTAzMzc3NiwibmFtZSI6IlBJIn0.K7g0S9tHraUzmhsW9cRrpFs7E5OLsKbdjGLAGTXpf4c";
 const client = new NFTStorage({ token: apiKey });
@@ -66,7 +68,14 @@ const Create = ({ Tezos }) => {
 
     return (
         <div>
-            <div style={{ width: '50%' }}>
+            <section>
+                <Container>
+                    <Row>
+                        <Col lg="3" md="4" sm="6">
+
+                        </Col>
+                    </Row>
+                </Container>
                 <form className="ui form error">
                     <div
                         className={`field required ${loadingSubmit ? "disabled" : ""
@@ -174,7 +183,7 @@ const Create = ({ Tezos }) => {
                         Mint
                     </button>
                 </form>
-            </div>
+            </section>
             <div style={{ width: '40%' }}>
                 <h2 className=" d-flex gap-2 align-items-center"><span><GiPencilBrush /></span> Artistic</h2>
             </div>
