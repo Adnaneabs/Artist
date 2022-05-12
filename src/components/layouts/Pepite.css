@@ -1,0 +1,73 @@
+.token__card{
+    padding: 20px;
+    background: #333333;
+    border-radius: 10px;
+}
+.token__image img{
+    border-radius: 10px;
+}
+
+.token__image video{
+    border-radius: 10px;
+}
+
+.token__image {
+    margin-bottom: 15px;
+}
+
+.title__card{
+    margin-bottom: 15px;
+}
+.title__card a {
+    color: whitesmoke;
+    font-size: 1rem;
+    text-decoration: none;
+}
+.title__card a:hover {
+    color: whitesmoke;
+}
+.createur__info h6{
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.772);
+    margin-bottom: 0;
+    font-weight: 300;
+    font-family: 'Vast Shadow', sans-serif;
+}
+
+.createur__info p{
+    font-size: 0.9rem;
+    color: whitesmoke;
+    margin-bottom: 0;
+    font-weight: 500;
+    font-family: 'Vast Shadow', sans-serif;
+}
+
+.buy__btn{
+    border: none;
+    outline: none;
+    padding: 5px 22px;
+    border: 1px solid darkcyan;
+    font-size: 0.9rem;
+    font-family: 'Vast Shadow', sans-serif;
+    color: whitesmoke;
+    border-radius: 50px;
+    transition: 0.3s;
+    background: darkcyan;
+}
+
+.buy__btn:hover{
+    background: whitesmoke;
+    color: darkcyan;
+}
+
+.pepite__top h3 {
+    font-family: 'Vast Shadow', sans-serif;
+    color: darkcyan;
+}
+
+.pepite__top span a {
+    text-decoration: none;
+    color: #333333;
+    font-family: 'Vast Shadow', sans-serif;
+    border-bottom: 1px solid darkcyan;
+}

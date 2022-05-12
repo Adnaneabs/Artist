@@ -22,7 +22,7 @@
   gap: 5rem;
   padding-top: 20px;
   background-color: #333333;
-  position: fixed;
+  position: static;
   width: 100%;
 }
 
@@ -36,7 +36,7 @@
 
 .list__item a {
   text-decoration: none;
-  color: #fff;
+  color: #E1F4F3;
   opacity: 85%;
   font-size: 0.9rem;
   font-family: 'Vast Shadow', sans-serif;
@@ -44,14 +44,14 @@
 }
 
 .list__item a:hover {
-  color: #fff;
+  color: #E1F4F3;
   opacity: 85%;
 }
 
 .newsletter {
   width: 100%;
   border-radius: 50px;
-  color: #fff;
+  color: #E1F4F3;
   padding: 7px 25px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -62,14 +62,13 @@
 }
 
 ::placeholder {
-  color: #fff;
+  color: #E1F4F3;
   opacity: 85%;
 }
 
 .social__links span a {
   text-decoration: none;
-
-  color: #fff;
+  color: #E1F4F3;
   opacity: 85%;
   font-size: 1.2rem;
   font-weight: 400;
@@ -81,7 +80,7 @@
 }
 
 .copyright {
-  color: white;
+  color: #E1F4F3;
   font-size: 0.8rem;
   font-family: 'Vast Shadow', sans-serif;
   alignment: bottom;
@@ -89,13 +88,13 @@
 
 .mb-3 input {
   border-radius: 10px;
-  color: #343444;
+  color: #333333;
 }
 
 .logoSocial{
   display: flex;
   gap: 1.5rem;
-  color: white;
+  color: #E1F4F3;
   justify-content: space-between;
   font-size: 60px;
 }

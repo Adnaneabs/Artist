@@ -4,48 +4,18 @@ import { useHistory } from "react-router";
 
 import { collectNFT } from "../../actions";
 import Token from "../sections/Token_card";
+import Presentation from "./Presentation";
+import Pepite from "./Pepite";
+import Recent from "./Recent";
+import Utils from "./Utils";
 
-const Home = ({ Tezos }) => {
-    //Contient tous les NFTs
-    const selector = useSelector(state => state.tokenData);
-    const dispatch = useDispatch(); 
-    const history = useHistory();
-
-    const tokens = selector.map((obj, idx) =>
-        <Token
-            key={idx}
-            item={obj}
-            onCollect={() => dispatch(collectNFT({ Tezos, amount: obj.amount, id: obj.token_id }))}
-            onClick={() => obj.collectable && history.push(`/show/${obj.token_id}`)}
-            cardW={230}
-        />
-    );
-    const tokensRecent = selector.map((obj, idx) =>
-        <Token
-            key={idx}
-            item={obj}
-            onCollect={() => dispatch(collectNFT({ Tezos, amount: obj.amount, id: obj.token_id }))}
-            onClick={() => obj.collectable && history.push(`/show/${obj.token_id}`)}
-            cardW={200}
-        />
-    );
-
+const Home = () => {
     return (
         <div>
-            <h1 style={{fontFamily :'Vast Shadow',
-                        color : '#6c669b'}}>
-                Les "pépites" du mois
-                </h1>
-            <div className="ui link three column grid cards">
-                {tokens}
-            </div>
-            <h1 style={{fontFamily :'Vast Shadow',
-                        color : '#6c669b'}}>
-                Récemment créés
-                </h1>
-            <div className="ui link three column grid cards">
-                {tokensRecent}
-            </div>
+            <Presentation/>
+            <Pepite/>
+            <Recent/>
+            <Utils/>
         </div>
 
     );
