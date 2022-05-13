@@ -9,6 +9,8 @@
     border-radius: 10px;
     background-color: #333333;
     box-shadow: darkcyan;
+    margin-right: 10px;
+    align-items: center;
 }
 
 .utils__body{

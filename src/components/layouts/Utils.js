@@ -1,5 +1,5 @@
 import React from "react";
-import {Card, CardBody, CardText, CardTitle, Col, Container, Row} from "reactstrap";
+import {Col, Container, Row} from "reactstrap";
 import {BiPurchaseTagAlt, HiDocumentDownload, IoWalletOutline, MdCollections} from "react-icons/all";
 import './Utils.css'
 
