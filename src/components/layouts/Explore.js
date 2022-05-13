@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
-
 import { collectNFT } from "../../actions";
 import Token from "../sections/Token_card";
+import {Col, Container, Row} from "reactstrap";
 
 const Explore = ({ Tezos }) => {
     const selector = useSelector(state => state.tokenData);
@@ -11,40 +11,27 @@ const Explore = ({ Tezos }) => {
     const history = useHistory();
 
     const tokens = selector.map((obj, idx) =>
-        <Token
-            key={idx}
-            item={obj}
-            onCollect={() => dispatch(collectNFT({ Tezos, amount: obj.amount, id: obj.token_id }))}
-            onClick={() => obj.collectable && history.push(`/show/${obj.token_id}`)}
-            cardW={230}
-        />
+        <Col lg="3" md="4"  sm="6" className="mb-4" key={idx}>
+            <Token
+                key={idx}
+                item={obj}
+                onCollect={() => dispatch(collectNFT({ Tezos, amount: obj.amount, id: obj.token_id }))}
+                onClick={() => obj.collectable && history.push(`/show/${obj.token_id}`)}
+            />
+        </Col>
+
     );
-    const randomToken = tokens[Math.floor(Math.random() * tokens.length)]
-        
 
     return (
         <div>
-            <h1 style={{
-                fontFamily: 'Vast Shadow',
-                color: '#6c669b',
-                textAlign: "center"
-            }}>
-                NFT aléatoire
-            </h1>
-            <div style={{
-                marginTop: '100px',
-                lineHeight: "100%",
-                textAlign: "center",
-                justifyContent: 'center',
-                marginLeft : '44%'
-            }}>
-                <div>
-                    {randomToken}
-                </div>
-                <button >
-
-                </button>
-            </div>
+            <h2 style={{textAlign:'center', fontFamily:'Vast Shadow, sans-serif', color:'darkcyan', marginBottom:'20px'}}>Explorer</h2>
+            <section>
+                <Container>
+                    <Row>
+                        {tokens}
+                    </Row>
+                </Container>
+            </section>
         </div>
 
     );

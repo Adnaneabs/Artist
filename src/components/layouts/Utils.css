@@ -1,0 +1,30 @@
+.utils__top h3 {
+    font-family: 'Vast Shadow', sans-serif;
+    color: darkcyan;
+    text-align: center;
+}
+
+.utils__card{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #333333;
+    box-shadow: darkcyan;
+    margin-right: 10px;
+    align-items: center;
+}
+
+.utils__body{
+    margin-bottom: 15px;
+    color: whitesmoke;
+    font-family: 'Vast Shadow', sans-serif;
+    text-align: center;
+
+}
+
+.utils__title{
+    color: darkcyan;
+    font-family: 'Vast Shadow', sans-serif;
+    text-align: center;
+}
+
+

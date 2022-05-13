@@ -75,7 +75,7 @@ function Footer(){
                 <Row className="row">
                     <Col lg="3" md="6" className="mb-4">
                         <div className="logo">
-                            <h1 className="d-flex gap-2 align-items-center">Artistic</h1>
+                            <h1 className="d-flex gap-2 align-items-center">1Pix</h1>
                         </div>
                     </Col>
                     <Col lg="2" md ="3" sm="6" className="mb-4">
