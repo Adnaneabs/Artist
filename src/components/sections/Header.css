@@ -13,8 +13,10 @@
 }
 .logo h2 {
     color: #E1F4F3;
-    font-size: 50px;
+    background-size: 100% 100%;
+    background-clip: text;
     font-family: 'Vast Shadow', sans-serif;
+    margin-bottom: 0;
     margin: auto;
 }
 .nav{
@@ -32,6 +34,7 @@
     margin-bottom: 0;
     font-family: 'Vast Shadow', sans-serif;
     list-style-type: none;
+    column-gap: 2.7rem;
 }
 
 .menu_items a {
@@ -45,6 +48,10 @@
     font-family: 'Vast Shadow', sans-serif;
 }
 
+.active {
+    color: darkcyan !important;
+  }
+
 .menu_wallet .btn {
     padding: 7px 25px;
     border: 1px solid darkcyan;
@@ -55,7 +62,6 @@
     color: #E1F4F3;
     text-decoration: none;
     font-size: 0.8rem;
-    display: inline-block;
     font-family: 'Vast Shadow', sans-serif;
 }
 
@@ -72,3 +78,50 @@
     font-size: 1.3rem;
     display: none;
 }
+
+@media only screen and (max-width: 768px) {
+    .menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:#333333 ;
+      z-index: 222222;
+      display: none;
+    }
+
+    .active__menu {
+        display: block;
+    }
+  
+    .menuC {
+      display: block;
+    }
+    .menu_list {
+        position:absolute;
+        top: 0;
+        right: 0;
+        width: 250px;
+        height: 100%;
+        background: #333333;
+        z-index: 333333;
+        flex-direction: column;
+        padding-top: 40px;
+        font-family: 'Vast Shadow', sans-serif;
+    }
+  
+  
+    .mobile_menu {
+      display:block;
+    }
+    
+    .btn {
+        padding: 4px 25px !important;
+    }
+    
+     .btn a {
+        font-size: 0.5rem !important;
+    }
+  
+  }
