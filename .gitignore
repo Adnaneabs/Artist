@@ -1,9 +1,12 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+/node_modules/*
 /.pnp
 .pnp.js
+
+# Don't ignore our changes to nft.storage
+!node_modules/nft.storage
 
 # testing
 /coverage
