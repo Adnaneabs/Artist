@@ -21,6 +21,7 @@ const Create = ({ Tezos }) => {
   const [description, setDescription] = useState("");
   const [symbol, setSymbol] = useState("");
   const [amount, setAmount] = useState("0");
+
   const [error, setError] = useState("");
   const [loadingSubmit, setLoading] = useState(false);
 
@@ -130,6 +131,7 @@ const Create = ({ Tezos }) => {
               <p>The amount must be a valid Mutez value.</p>
             </div>
           ) : null}
+
           <div className={`field required ${loadingSubmit ? "disabled" : ""}`}>
             <label>Image</label>
             <button
