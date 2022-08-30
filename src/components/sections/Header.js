@@ -18,10 +18,6 @@ const NavigationLinks = [
     display: "Créer",
     url: "/create",
   },
-  {
-    display: "Compte",
-    url: "/account",
-  },
 ];
 const Header = ({ Tezos, wallet, setTezos }) => {
   const selector = useSelector((state) => {

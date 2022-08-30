@@ -1,3 +1,4 @@
+/**This document includes actions creators for contract calls */
 import { TezosToolkit } from "@taquito/taquito";
 import { NetworkType } from "@airgap/beacon-sdk";
 import config from "../config";
@@ -16,7 +17,7 @@ export const connectWallet = ({ wallet, Tezos }) => {
         await wallet.requestPermissions({
           network: {
             type: NetworkType.MAINNET,
-            rpcUrl: "https://mainnet.smartpy.io",
+            rpcUrl: "https://mainnet.smartpy.io", //Use the network where the contract has been deployed
           },
         });
       }
@@ -46,7 +47,7 @@ export const _walletConfig = (user) => {
 
 export const disconnectWallet = ({ wallet, setTezos }) => {
   return async (dispatch) => {
-    setTezos(new TezosToolkit("https://mainnet.smartpy.io"));
+    setTezos(new TezosToolkit("https://mainnet.smartpy.io")); //Use the network where the contract has been deployed
 
     dispatch({
       type: "DISCONNECT_WALLET",
@@ -103,16 +104,26 @@ export const decrementData = ({ Tezos }) => {
   };
 };
 
+/**
+ *
+ * Mint function requires 2 parameters : Amount et Metadata URL
+ */
 export const mintNFT = ({ Tezos, amount, metadata }) => {
   return async (dispatch) => {
     try {
+      //instance of the markeplace contract used to call the entry point on the contract
       const contract = await Tezos.wallet.at(config.contractAddress);
+
+      //Convert Metadata to hex code
       let bytes = "";
       for (var i = 0; i < metadata.length; i++) {
         bytes += metadata.charCodeAt(i).toString(16).slice(-4);
       }
+
+      //Call the entry point
       const op = await contract.methods.mint(amount, bytes).send();
       await op.confirmation();
+      // To fetch data
       dispatch(fetchData());
     } catch (e) {
       console.log(e);
@@ -120,6 +131,7 @@ export const mintNFT = ({ Tezos, amount, metadata }) => {
   };
 };
 
+/** Collect entry point requires 1 parameter : Token id */
 export const collectNFT = ({ Tezos, amount, id }) => {
   return async (dispatch) => {
     try {
@@ -127,8 +139,9 @@ export const collectNFT = ({ Tezos, amount, id }) => {
 
       const op = await contract.methods
         .collect(id)
-        .send({ mutez: true, amount: amount });
+        .send({ mutez: true, amount: amount }); // Send the amount required to collect the NFT (mutez units)
       await op.confirmation();
+
       dispatch(fetchData());
     } catch (e) {
       console.log(e);
@@ -140,13 +153,18 @@ export const burnNFT = ({ Tezos, id, amount }) => {
   return async (dispatch) => {
     try {
       const contract = await Tezos.wallet.at(config.contractAddress);
-      const op = await contract.methods
-        .fa2_transfer([
+      const token = await Tezos.wallet.at(config.tokenAddress);
+      const op = await token.methods
+        .transfer([
           {
-            from_: config.contractAddress,
-            to_: BURN_ADDRESS,
-            token_id: id,
-            amount: amount,
+            from_: "KT19rNH2JG8UgYrVzsLuCmTbZgszHqVfnUd4",
+            txs: [
+              {
+                to_: "tz1Ke2h7sDdakHJQh8WX4Z372du1KChsksyU",
+                token_id: id,
+                amount: amount,
+              },
+            ],
           },
         ])
         .send();
@@ -162,21 +180,25 @@ export const hex2buf = (hex) => {
   return new Uint8Array(hex.match(/[\da-f]{2}/gi).map((h) => parseInt(h, 16)));
 };
 
+//Convert Bytes into strings back
 export function bytes2Char(hex) {
   return Buffer.from(hex2buf(hex)).toString("utf8");
 }
 
+//It's an action creator
 export const fetchData = () => {
   return async (dispatch) => {
     try {
+      // Data from the markerplace address
       const response = await axios.get(
         `https://api.mainnet.tzkt.io/v1/contracts/${config.contractAddress}/bigmaps/data/keys`
       );
+      //data from the token address
       const response1 = await axios.get(
         `https://api.mainnet.tzkt.io/v1/contracts/${config.tokenAddress}/bigmaps/token_metadata/keys`
       );
       const d1 = response.data;
-      const d2 = response1.data;
+      const d2 = response1.data; // returns an array with values token id and token info containing bytes for IPFS hash
       let tokenData = [];
       for (let i = 0; i < d1.length; i++) {
         const s = bytes2Char(d2[i].value.token_info[""]).split("//").at(-1);

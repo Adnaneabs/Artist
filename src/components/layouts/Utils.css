@@ -9,7 +9,7 @@
     border-radius: 10px;
     background-color: #333333;
     box-shadow: darkcyan;
-    margin-right: 10px;
+    margin-right: 5px;
     align-items: center;
 }
 
@@ -17,6 +17,7 @@
     margin-bottom: 15px;
     color: whitesmoke;
     font-family: 'Vast Shadow', sans-serif;
+    font-size: x-small;
     text-align: center;
 
 }
@@ -26,5 +27,6 @@
     font-family: 'Vast Shadow', sans-serif;
     text-align: center;
 }
+
 
 

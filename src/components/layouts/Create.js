@@ -6,17 +6,20 @@ import { useDispatch } from "react-redux";
 import { Container } from "@mui/material";
 import { Col, Row } from "reactstrap";
 
+//Get an API key by signing up for an account on nft.storage
 const apiKey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDliNmJiRjA5RTRiMGIyNDQxNTA3NTlkMWQ3MWE1RTc2NjJkMDE3MEYiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY0OTY2NTAzMzc3NiwibmFtZSI6IlBJIn0.K7g0S9tHraUzmhsW9cRrpFs7E5OLsKbdjGLAGTXpf4c";
 const client = new NFTStorage({ token: apiKey });
 
 const Create = ({ Tezos }) => {
   const dispatch = useDispatch();
+
   const [openFileSelector, { filesContent }] = useFilePicker({
     accept: [".png", ".jpg", ".jpeg", ".gif", ".mp4"],
     multiple: false,
     readAs: "ArrayBuffer",
   });
+
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [symbol, setSymbol] = useState("");
